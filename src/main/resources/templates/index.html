@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>必紅直播</title>
+    <meta name="description" content="">
+    <meta name="subject" content="">
+</head>
+<body>
+
+<input type="button" id="setCookie" value="按我設定cookie">
+<input type="text" id="cookieName" value="name">
+<input type="text" id="cookieValue" value="value">
+<br />
+<input type="button" id="getCookie" value="按我取得cookie">
+<br />
+
+<input type="button" id="windowOpen" value="按我開啟新頁">
+<br />
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/demo.js"></script>
+
+<script th:inline="javascript">
+ $(document).ready(()=>{
+
+    $("#setCookie").click(()=>{
+        let URLs=/*[[@{/setCookie}]]*/
+        let name=$("#cookieName").val();
+        let value=$("#cookieValue").val();
+        doPOST(URLs,{name,value}).then(res=>{
+            console.log(res);
+            alert("已經設定");
+        });
+    });
+    $("#getCookie").click(()=>{
+        let URLs=/*[[@{/getCookie}]]*/
+        doPOST(URLs,{}).then(res=>{
+            alert(res.data);
+        });
+    });
+
+    $("#windowOpen").click(()=>{
+        let URLs="https://bbb.ubn.tc:8080/todo-list/index2"
+        window.open(URLs);
+    });
+
+ });
+
+</script>
+
+
+</html>
