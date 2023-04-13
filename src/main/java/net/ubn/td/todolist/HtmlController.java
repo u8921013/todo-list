@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -35,6 +37,7 @@ public class HtmlController {
     public String index2(HttpServletRequest request){
         String strReferer=request.getHeader("Referer");
         System.out.println("Referer="+strReferer);
+
         return "index";
     }
 

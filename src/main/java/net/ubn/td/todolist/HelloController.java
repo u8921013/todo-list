@@ -52,7 +52,7 @@ public class HelloController {
         ResponseCookie cookie=ResponseCookie.from(cookieData.name(),cookieData.value())
                 .httpOnly(true)
                 .secure(true)
-                .domain("ubn.tc")
+                .domain("homeworld.top")
                 .sameSite("NONE")
                 .build();
         response.setHeader(HttpHeaders.SET_COOKIE,cookie.toString());
