@@ -10,7 +10,7 @@
     </parent>
     <groupId>net.ubn.td</groupId>
     <artifactId>todo-list</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>todo-list</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -60,7 +60,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <repository>${project.artifactId}</repository>
+                    <repository>u8921013/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
