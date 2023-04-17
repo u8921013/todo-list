@@ -19,6 +19,13 @@ pipeline {
                 }
             }
         }
+        stage("部署到機器上"){
+            sshPublisher(
+                publishers: [
+                    sshPublisherDesc(configName: '203.66.14.147',
+                        sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAg1HLl8nXIIBXLWhpX2ie6bm/FZW5sgMPTOOnPy5MV769ycKFbJEccZ19vbw2GD6m+}', key: '', keyPath: '', username: 'root'],
+                        transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/opt/docker-todo/deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+        }
 
 //         stage('Build image') {
 //               dockerImage = docker.build("monishavasu/my-react-app:latest")
