@@ -19,6 +19,9 @@
 
 <input type="button" id="windowOpen" value="按我開啟新頁">
 <br />
+
+Session存放的資料：
+<div th:text="${session.OLD_DATA}" th:unless="${session==null}">1400</div>
 </body>
 
 <script src="js/jquery.min.js"></script>

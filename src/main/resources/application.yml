@@ -10,3 +10,14 @@ spring:
     suffix: .html
     encoding: UTF-8
     mode: HTML
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save
+      namespace: spring:session
+  data:
+    redis:
+#      host: 203.66.14.147
+      host: redis
+      password: lendypwd
+      port: 6379

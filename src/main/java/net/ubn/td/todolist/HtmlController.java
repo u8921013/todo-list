@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -28,8 +29,17 @@ public class HtmlController {
 
     @GetMapping("/index")
     public String index(HttpServletRequest request){
-        System.out.println("index request="+request.getServletPath());
+        String oldData=Optional.ofNullable(request.getSession().getAttribute("OLD_DATA"))
+                .map(o->(String)o).orElseGet(()->"裡面是空的");
+        System.out.println("oldData="+oldData);
+        return "index";
+    }
 
+    @GetMapping("/setSessionData")
+    public String setSessionData(HttpServletRequest request){
+        String newData="password";
+        request.getSession().setAttribute("OLD_DATA",newData);
+        System.out.println("newData="+newData);
         return "index";
     }
 
