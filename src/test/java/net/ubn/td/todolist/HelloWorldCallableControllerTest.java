@@ -15,4 +15,7 @@ public class HelloWorldCallableControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    public static void main(String[] args) {
+
+    }
 }
