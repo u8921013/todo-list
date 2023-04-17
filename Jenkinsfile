@@ -13,7 +13,7 @@ pipeline {
         stage('Docker Image 製作與推送') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "docker-hub", passwordVariable: 'dockerPasswd', usernameVariable: 'dockerUser')]){
-                    sh 'docker build -t u8921013/todo-list .'
+                    sh 'docker build --build-arg JAR_FILE=target/todo-list-0.0.2-SNAPSHOT.jar -t u8921013/todo-list .'
                     sh 'docker login -u ${dockerUser} -p ${dockerPasswd}'
                     sh 'docker push u8921013/todo-list'
                 }
