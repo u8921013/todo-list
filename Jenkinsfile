@@ -7,15 +7,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Get some code from a GitHub repository
-//                     git branch: 'master', url: 'https://github.com/u8921013/todo-list.git'
-
-                // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean package -X"
-                //sh "docker build -t u8921013/todo-list ."
-                //sh "docker push u8921013/todo-list"
-                // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('Docker Image 製作與推送') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: "docker-hub", passwordVariable: 'dockerPasswd', usernameVariable: 'dockerUser')]){
+                    sh 'docker build -t u8921013/todo-list .'
+                    sh 'docker login -u ${dockerUser} -p ${dockerPasswd}'
+                    sh 'docker push u8921013/todo-list'
+                }
             }
         }
 
