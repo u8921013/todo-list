@@ -22,6 +22,8 @@
 
 Session存放的資料：
 <div th:text="${session.OLD_DATA}" th:unless="${session==null}">1400</div>
+
+<input type="button" id="ajaxClick" value="點我呼叫API">
 </body>
 
 <script src="js/jquery.min.js"></script>
@@ -50,6 +52,17 @@ Session存放的資料：
         let URLs="https://bbb.ubn.tc:8080/todo-list/index2"
         window.open(URLs,"123456");
     });
+
+    $("#ajaxClick").click(()=>{
+<!--       let URLs=/*[[@{/getData}]]*/-->
+       let URLs="https://aaa.ubn.tc:8080/todo-list/getData"
+        doGET(URLs).then(res=>{
+            alert(res.value);
+        }).catch(err=>{
+            alert("發生錯誤："+err);
+        });
+    });
+
 
  });
 

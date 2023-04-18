@@ -1,0 +1,6 @@
+spring:
+  data:
+    redis:
+      host: redis
+      password: lendypwd
+      port: 6379

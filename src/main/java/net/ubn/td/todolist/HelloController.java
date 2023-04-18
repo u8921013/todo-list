@@ -111,6 +111,12 @@ public class HelloController {
         System.out.println("postTodo=> id"+todo.getId()+",name:"+todo.getName());
         return ResponseEntity.ok("ok");
     }
+    @GetMapping("/getData")
+    public ResponseEntity<CookieData> getData(){
+
+        return ResponseEntity.ok(new CookieData("This is cookieName","this is cookieValue"));
+    }
+
 
 }
 
