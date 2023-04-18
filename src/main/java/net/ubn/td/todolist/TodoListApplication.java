@@ -6,6 +6,10 @@ import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class TodoListApplication {
@@ -24,6 +28,18 @@ public class TodoListApplication {
 		public String generateBeanName(BeanDefinition definition, BeanDefinitionRegistry registry) {
 			return definition.getBeanClassName();
 		}
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins(new String[]{"*"}).allowCredentials(true);
+
+			}
+
+
+		};
 	}
 
 }
