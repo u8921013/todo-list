@@ -15,6 +15,9 @@
             contentType: "application/json; charset=utf-8",
             type: "GET",
             dataType: "json",
+            xhrFields: {
+                  withCredentials: true
+             }
           }).then(
             function (data) {
               resolve(data);
