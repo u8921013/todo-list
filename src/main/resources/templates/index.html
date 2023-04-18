@@ -55,7 +55,7 @@ Session存放的資料：
 
     $("#ajaxClick").click(()=>{
 <!--       let URLs=/*[[@{/getData}]]*/-->
-       let URLs="https://aaa.ubn.tc:8080/todo-list/getData"
+       let URLs="https://aaa.ubn.tc/todo-list/getData"
         doGET(URLs).then(res=>{
             alert(res.value);
         }).catch(err=>{
