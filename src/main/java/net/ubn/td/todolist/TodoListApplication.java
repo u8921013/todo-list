@@ -34,11 +34,10 @@ public class TodoListApplication {
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins(new String[]{"*"}).allowCredentials(true);
-
+				registry.addMapping("/**")
+						.allowedOrigins(new String[]{"bbb.ubn.tc","aaa.homeworld.top"})
+						.allowCredentials(true);
 			}
-
-
 		};
 	}
 
