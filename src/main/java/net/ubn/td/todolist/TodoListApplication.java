@@ -35,8 +35,8 @@ public class TodoListApplication {
 		return new WebMvcConfigurer() {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins(new String[]{"bbb.ubn.tc","aaa.homeworld.top"});
-//						.allowCredentials(true);
+						.allowedOrigins(new String[]{"bbb.ubn.tc","aaa.homeworld.top"})
+						.allowCredentials(true);
 			}
 		};
 	}
