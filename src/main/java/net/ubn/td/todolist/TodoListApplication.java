@@ -30,15 +30,4 @@ public class TodoListApplication {
 		}
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**")
-						.allowedOrigins(new String[]{"aaa.homeworld.top"})
-						.allowCredentials(true);
-			}
-		};
-	}
-
 }
