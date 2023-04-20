@@ -22,7 +22,8 @@
 
 Session存放的資料：
 <div th:text="${session.OLD_DATA}" th:unless="${session==null}">1400</div>
-
+Session存放的id:
+<div th:text="${session.id}" th:unless="${session==null}">id</div>
 <input type="button" id="ajaxClick" value="點我呼叫API">
 </body>
 

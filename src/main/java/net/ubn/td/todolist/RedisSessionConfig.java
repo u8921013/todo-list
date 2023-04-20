@@ -18,6 +18,7 @@ public class RedisSessionConfig {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();
         serializer.setCookieName("JSESSIONID");
         serializer.setCookiePath("/");
+        serializer.setUseBase64Encoding(false);
         //域名的正则表达式。^.?\\.(\\w\\.[a-z]+)$ 是个通用写法。
         // 如果正则表达式不匹配，则不会设置任何域。如果正则表达式匹配，则第一个分组将用作域。
         // 例如：https://child.mydomain.com的请求会将域设置为mydomain.com。
@@ -25,6 +26,7 @@ public class RedisSessionConfig {
         // 因此，在切换域名时，不需要再做任何修改。
 //        serializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
         serializer.setDomainName("homeworld.top");
+
         return serializer;
     }
 }

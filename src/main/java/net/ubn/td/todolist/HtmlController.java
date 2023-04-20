@@ -39,7 +39,7 @@ public class HtmlController {
     public String setSessionData(HttpServletRequest request){
         String newData="password";
         request.getSession().setAttribute("OLD_DATA",newData);
-        System.out.println("newData="+newData);
+        System.out.println("sessionId="+request.getSession().getId());
         return "index";
     }
 
