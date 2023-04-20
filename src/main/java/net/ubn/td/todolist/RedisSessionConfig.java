@@ -25,7 +25,7 @@ public class RedisSessionConfig {
         // http:// localhost:8080 /或https://192.168.1.100:8080/的请求将不对域名进行处理。
         // 因此，在切换域名时，不需要再做任何修改。
 //        serializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$");
-        serializer.setDomainName("homeworld.top");
+        serializer.setDomainName("ubn.tc");
 
         return serializer;
     }
