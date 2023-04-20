@@ -36,7 +36,7 @@ public class TodoListApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("https://bbb.ubn.tc","http://aaa.homeworld.top")
+						.allowedOrigins("https://bbb.ubn.tc")
 						.allowCredentials(true);
 			}
 		};
