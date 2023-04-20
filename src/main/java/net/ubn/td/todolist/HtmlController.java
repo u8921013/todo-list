@@ -31,7 +31,7 @@ public class HtmlController {
     public String index(HttpServletRequest request){
         String oldData=Optional.ofNullable(request.getSession().getAttribute("OLD_DATA"))
                 .map(o->(String)o).orElseGet(()->"裡面是空的");
-        System.out.println("oldData="+oldData);
+        System.out.println("index sessionId="+request.getSession().getId());
         return "index";
     }
 
@@ -39,7 +39,7 @@ public class HtmlController {
     public String setSessionData(HttpServletRequest request){
         String newData="password";
         request.getSession().setAttribute("OLD_DATA",newData);
-        System.out.println("sessionId="+request.getSession().getId());
+        System.out.println("setSessionData sessionId="+request.getSession().getId());
         return "index";
     }
 
