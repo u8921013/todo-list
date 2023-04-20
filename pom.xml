@@ -48,7 +48,7 @@
     <repositories>
         <repository>
             <id>nexus</id>
-            <url>http://gitlab.ubn.net:8081/repository/maven-public/</url>
+            <url>https://live.ubn.net/nexus/repository/maven-public/</url>
         </repository>
     </repositories>
     <build>
